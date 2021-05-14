@@ -1,77 +1,95 @@
-html {
-	/*Aumenta la altura del espacio a utilizar al máximo*/
-	height: 100%;
-}
-
+html { 
+   height: 100%; 
+   }
 body {
-	background-color: #999999;
-	/*no permite reducir la altura del body*/
-	min-height: 100%;
+	background-color: #ffa0bd;
+	min-height: 100%; 
 }
 
 .grid-container {
 	display: grid;
-	/*grid-template-rows: 10% 40% 50% 20%;
-	grid-template-rows:6rem 13rem 18rem 10rem;
+	/grid-template-rows: 10% 40% 50% 20% ;/
+	grid-template-rows: 8rem 13rem 18rem 10rem ;
 	grid-template-columns: 70% 30%;
-	grid-template-areas:
-		"nav-area 		nav-area"
-		"header-area 	header-area"
-		"section-area 	aside-area"
-		"footer-area 	footer-area"
-	;*/
-	grid-template:
-		"nav-area 		nav-area" 6rem
-		"header-area 	header-area" 13rem
-		"section-area 	aside-area" 18rem
-		"footer-area 	footer-area" 10rem /
-		70% 			30%
+	grid-template-areas: 
+	"nav-area       nav-area"
+	"header-area    header-area"
+	"section-area   aside-area" 
+	"footer-area    footer-area"
 	;
+
+	/*grid-template: 
+	"nav-area       nav-area"   6rem
+	"header-area    header-area"13rem
+	"section-area  aside-area"  18rem
+	"footer-area    footer-area"10rem
+       70%          30%
+	;*/
 }
 
-.grid-gallery {
-	display: grid;
-	grid-template-columns: repeat(4, auto);
-	grid-template-rows: auto auto;
-}
-
+.grid-gallery{
+	 display: grid;
+	 grid-template-columns: repeat(4, auto); 
+	 grid-template-rows: auto auto;
+ }
 nav {
-	background-color: #00B33C;
-	grid-area:nav-area;
+    background-color: #ffa0bd;
+    grid-area: nav-area;
+    justify-content:center;
 }
 
-/* EJEMPLO DE CLASES NAV
-.mainnav {
-	background-color: #00B33C;
+ul {
+	width: 50%;
+	padding:0px;
+	text-align: center;
 }
+
+li{
+	text-decoration: none;
+	text-align: center;
+	width: 180px;
+	display: inline-block;
+	background-color:#ffc1d3  ;
+	
+
+}
+
+/*.mainnav {
+	background-color: #51b33c
+}
+
 .subnav {
-	background-color: #66B33C;
-}
-*/
+	background-color: #36b33c
+}*/
+
+
 header {
-	background-color: crimson;
-	grid-area:header-area;
+       background-color: #ffe0e9;
+       grid-area: header-area;
 }
 
 img {
-	background-color: #6350CA;
+    background-color: #D2B4DE;
 }
 
 section {
-	background-color: royalblue;
-	grid-area:section-area;
+        background-color:#ffa0bd;
+        grid-area: section-area;
+     
 }
 
+
 aside {
-	background-color: #1AC6FF;
-	grid-area:aside-area;
+      background-color: #ffe0e9;
+      grid-area: aside-area;
+}
+    
 }
 
 footer {
-	background-color: palevioletred;
-	grid-area:footer-area;
+       background-color: #808080;
+       grid-area: footer-area;
 }
-
 
 .img1 {
 
@@ -85,11 +103,99 @@ footer {
 .img3 {
 	grid-row-start: 1;
 	grid-row-end: 3;
-	grid-column-start:4;
-	grid-column-end: 5;
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
 
 .img4 {
 	grid-column-start: 1;
-	grid-column-end: 3;
+	grid-column-end:2;
 }
+/********************
+CAMBIOS PARA PHONE
+*********************/
+@media (max-width: 424px){
+	nav {
+		opacity: 20%;
+		}
+
+		   .grid-container{
+		grid-template:
+		"nav-area   "6rem
+		"header-area "3rem
+		"section-area" auto
+		"aside-area" 3rem
+		"footer-area" 18rem/
+		;
+	     }
+
+
+
+		
+	
+	.grid-gallery {
+	    grid-template-columns: auto;
+	    grid-template-rows: repeat(5,3rem);
+	     }
+
+
+	.img2
+	 {
+	    grid-column-start: 1;
+	    grid-column-end: 2;
+	 }
+	.img3{
+		grid-row-start: 3;
+		grid-row-end: 4;
+	 }
+	.img4{
+	    grid-column-start: 1;
+	    grid-column-end: 3;
+	 }
+	 
+	 }
+
+	/********************
+	CAMBIOS PARA TABLET
+	*********************/
+
+	@media
+	(max-width: 620px){  
+	header,footer,nav
+
+	{
+
+
+	width: 100%
+
+	.grid-container{
+
+	grid-template:
+	"nav-area  nav-area" 6rem
+	"header-area  header-area" 13rem
+	"section-area   section-area" auto
+	"footer-area  footer-area"10rem/
+	70%                     30%;
+
+	}  
+
+
+	.grid-gallery{
+	      grid-template-columns: 1;
+	      grid-column-end: repeat(7.8rem);
+	}
+	
+	.img2
+	{
+	      grid-column-start: 1;
+	      grid-column-end: 2;
+
+	}
+	.img3{
+	      grid-row-start: 3;
+	      grid-column-end: 4;
+	}
+	.img4{
+	       grid-column-start: 5;
+	       grid-column-end: 6;
+	}                         
